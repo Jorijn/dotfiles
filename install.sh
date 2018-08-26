@@ -14,6 +14,7 @@ ln -sf "$DOTFILES_DIR/.oh-my-zsh" ~
 ln -sf "$DOTFILES_DIR/.zsh_aliases" ~
 ln -sf "$DOTFILES_DIR/.sleep" ~
 ln -sf "$DOTFILES_DIR/.wakeup" ~
+ln -sf "$DOTFILES_DIR/.curlrc" ~
 
 # setup GnuPG
 mkdir -p ~/.gnupg
@@ -22,3 +23,7 @@ ln -sf "$DOTFILES_DIR/gpg-agent.conf" ~/.gnupg/
 
 # install Brewfile
 brew bundle
+
+# install global npm modules
+# dump: npm list -g --depth=0
+npm install -g fsevents ghost-cli npm pure-prompt yarn
