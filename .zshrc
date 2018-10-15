@@ -1,8 +1,12 @@
 export ZSH=/Users/jorijn/.oh-my-zsh
-export PATH="/usr/local/sbin:$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/bin:/usr/local/sbin:$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export EDITOR=vi
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
+
+# php
+export PATH="/usr/local/opt/php@7.1/bin:$PATH"
+export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
 
 # oh-my-zsh
 ZSH_THEME=""
@@ -19,6 +23,8 @@ alias phpdebug='php -dxdebug.remote_enable=1 -dxdebug.remote_autostart=On -dxdeb
 alias cat=bat
 alias ping='prettyping --nolegend'
 alias top='sudo htop'
+alias dc='docker-compose'
+alias gc='git checkout'
 
 # includes
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
