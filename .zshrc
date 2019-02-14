@@ -4,10 +4,6 @@ export EDITOR=vi
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 
-# php
-export PATH="/usr/local/opt/php@7.1/bin:$PATH"
-export PATH="/usr/local/opt/php@7.1/sbin:$PATH"
-
 # oh-my-zsh
 ZSH_THEME=""
 plugins=(git osx cp supervisor laravel symfony2 composer brew)
@@ -17,7 +13,7 @@ source $ZSH/oh-my-zsh.sh
 alias tunnel='sshuttle --dns --daemon --pidfile=/tmp/sshuttle.pid --remote=jorijn@ssh.jorijn.com 0/0'
 alias tunnelx='[[ -f /tmp/sshuttle.pid ]] && kill $(cat /tmp/sshuttle.pid) && echo "SSH tunnel disconnected"'
 alias nano=vi
-alias renamer='curl http://192.168.116.2:5050/api/a9fc1f1a10e246b8a8f3b88d5ec9bc20/renamer.scan'
+alias renamer='curl http://10.0.1.2:5050/api/a9fc1f1a10e246b8a8f3b88d5ec9bc20/renamer.scan'
 alias phpprofiler='php -d xdebug.profiler_enable=On'
 alias phpdebug='php -dxdebug.remote_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=phpstorm'
 alias cat=bat
@@ -25,6 +21,7 @@ alias ping='prettyping --nolegend'
 alias top='sudo htop'
 alias dc='docker-compose'
 alias gc='git checkout'
+alias pst='phpstan analyse --level=max'
 
 # includes
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

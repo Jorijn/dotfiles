@@ -65,6 +65,9 @@
 	lg = log --color --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an (%G?)>%Creset' --abbrev-commit
 	mdiff = "!f() { git stash | head -1 | grep -q 'No local changes to save'; x=$?; git merge --no-commit $1 &>/dev/null; git add -u &>/dev/null; git diff --staged; git reset --hard &>/dev/null; test $x -ne 0 && git stash pop &>/dev/null; }; f"
 
+    # checkout any gitlab MR
+    mr = !sh -c 'git fetch $1 merge-requests/$2/head:mr-$1-$2 && git checkout mr-$1-$2' -
+
 [apply]
 
 	# Detect whitespace errors when applying a patch
@@ -146,6 +149,11 @@
 [user]
 	name = Jorijn Schrijvershof
 	email = jorijn@jorijn.com
+	signingkey = 0x8DD723EF52490B24
 
 [credential]
 	helper = osxkeychain
+[commit]
+	gpgsign = true
+[commit]
+	template = /Users/jorijn/.stCommitMsg
