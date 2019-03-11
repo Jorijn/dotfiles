@@ -43,8 +43,8 @@ function moveebms {
 # Yubikey GPG config
 export GPG_TTY="$(tty)"
 export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent
-gpg-connect-agent updatestartuptty /bye
+gpgconf --launch gpg-agent &>/dev/null
+gpg-connect-agent updatestartuptty /bye &>/dev/null
 
 # fzf, autojump
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
