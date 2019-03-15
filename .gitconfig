@@ -151,7 +151,5 @@
 	email = jorijn@jorijn.com
 	signingkey = 0x8DD723EF52490B24
 
-[credential]
-	helper = osxkeychain
 [commit]
 #	gpgsign = true
