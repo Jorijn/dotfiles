@@ -76,7 +76,7 @@
 [core]
 
 	# Use custom `.gitignore` and `.gitattributes`
-	excludesfile = /Users/jorijn/.gitignore
+	excludesfile = /home/jorijn/.gitignore
 	attributesfile = ~/.gitattributes
 
 	# Treat spaces before tabs and all kinds of trailing whitespace as an error
@@ -154,6 +154,4 @@
 [credential]
 	helper = osxkeychain
 [commit]
-	gpgsign = true
-[commit]
-	template = /Users/jorijn/.stCommitMsg
+#	gpgsign = true

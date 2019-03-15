@@ -21,9 +21,9 @@ mkdir -p ~/.gnupg
 ln -sf "$DOTFILES_DIR/gpg.conf" ~/.gnupg/
 ln -sf "$DOTFILES_DIR/gpg-agent.conf" ~/.gnupg/
 
-# install Brewfile
-brew bundle
+# install dnf packages
+sudo dnf install fzf
 
 # install global npm modules
 # dump: npm list -g --depth=0
-npm install -g fsevents ghost-cli npm pure-prompt yarn
+sudo npm install -g ghost-cli pure-prompt yarn

@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/.oh-my-zsh" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/.oh-my-zsh/custom/plugins/zsh-autosuggestions" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/.vim_runtime" vcs="Git" />
   </component>
 </project>
