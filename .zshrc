@@ -1,12 +1,13 @@
 export ZSH=/home/jorijn/.oh-my-zsh
-export PATH="$HOME/bin:/usr/local/sbin:$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/bin:/usr/local/sbin:$HOME/.config/composer/vendor/bin:$HOME/bin:/usr/local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export EDITOR=vi
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
+export USE_ZEND_ALLOC=0
 
 # oh-my-zsh
 ZSH_THEME="af-magic"
-plugins=(git osx cp supervisor laravel symfony2 composer zsh-autosuggestions dnf)
+plugins=(git osx cp supervisor laravel symfony2 composer zsh-autosuggestions dnf zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # aliases
