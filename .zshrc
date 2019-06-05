@@ -7,7 +7,7 @@ export LANG=en_US.UTF-8
 
 # oh-my-zsh
 ZSH_THEME=""
-plugins=(git osx cp supervisor laravel symfony2 composer brew)
+plugins=(git osx cp supervisor laravel symfony2 composer brew kubectl)
 source $ZSH/oh-my-zsh.sh
 
 # aliases
@@ -41,11 +41,15 @@ function moveebms {
     mv $payload $2
 }
 
-# Yubikey GPG config
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent &>/dev/null
-gpg-connect-agent updatestartuptty /bye &>/dev/null
+listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
 
 # fzf, autojump
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -53,3 +57,6 @@ gpg-connect-agent updatestartuptty /bye &>/dev/null
 
 autoload -U promptinit; promptinit
 prompt pure
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
