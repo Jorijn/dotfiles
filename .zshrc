@@ -23,6 +23,10 @@ alias top='sudo htop'
 alias dc='docker-compose'
 alias gc='git checkout'
 alias pst='phpstan analyse --level=max'
+alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'
+alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
+alias ls="colorls"
+alias lc="colorls --tree"
 
 # includes
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -51,12 +55,18 @@ listening() {
     fi
 }
 
+autoload -U promptinit; promptinit
+prompt pure
+
 # fzf, autojump
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
-autoload -U promptinit; promptinit
-prompt pure
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/jorijn/Development/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/jorijn/Development/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/jorijn/Development/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jorijn/Development/google-cloud-sdk/completion.zsh.inc'; fi
 
