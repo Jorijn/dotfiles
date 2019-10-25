@@ -22,7 +22,10 @@ ln -sf "$DOTFILES_DIR/gpg.conf" ~/.gnupg/
 ln -sf "$DOTFILES_DIR/gpg-agent.conf" ~/.gnupg/
 
 # install dnf packages
-sudo apt-get install fzf
+sudo apt-get install fzf bat
+
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # install global npm modules
 # dump: npm list -g --depth=0

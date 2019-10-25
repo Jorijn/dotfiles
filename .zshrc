@@ -52,13 +52,6 @@ listening() {
     fi
 }
 
-autoload -U promptinit; promptinit
-prompt pure
-
 # fzf, autojump
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ] && source /usr/share/doc/fzf/examples/key-bindings.zsh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-
-# pure prompt
-# autoload -U promptinit; promptinit
-# prompt pure
