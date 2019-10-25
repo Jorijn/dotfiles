@@ -22,8 +22,8 @@ ln -sf "$DOTFILES_DIR/gpg.conf" ~/.gnupg/
 ln -sf "$DOTFILES_DIR/gpg-agent.conf" ~/.gnupg/
 
 # install dnf packages
-sudo dnf install fzf
+sudo apt-get install fzf
 
 # install global npm modules
 # dump: npm list -g --depth=0
-sudo npm install -g ghost-cli pure-prompt yarn
+sudo npm install -g yarn

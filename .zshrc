@@ -1,7 +1,8 @@
 export ZSH=/home/jorijn/.oh-my-zsh
 export PATH="$HOME/bin:/usr/local/sbin:$HOME/.config/composer/vendor/bin:$HOME/bin:/usr/local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+export PATH="$HOME/.symfony/bin:$PATH"
 export EDITOR=vi
-export LC_ALL=en_US.UTF-8  
+export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 export USE_ZEND_ALLOC=0
 
@@ -23,6 +24,10 @@ alias top='sudo htop'
 alias dc='docker-compose'
 alias gc='git checkout'
 alias pst='phpstan analyse --level=max'
+alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'
+alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
+alias ls="colorls"
+alias lc="colorls --tree"
 
 # handy functions
 function drain_gearman() {
@@ -37,11 +42,18 @@ function moveebms {
     mv $payload $2
 }
 
-# Yubikey GPG config
-export GPG_TTY="$(tty)"
-export SSH_AUTH_SOCK=$(gpgconf --list-dirs agent-ssh-socket)
-gpgconf --launch gpg-agent &>/dev/null
-gpg-connect-agent updatestartuptty /bye &>/dev/null
+listening() {
+    if [ $# -eq 0 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P
+    elif [ $# -eq 1 ]; then
+        sudo lsof -iTCP -sTCP:LISTEN -n -P | grep -i --color $1
+    else
+        echo "Usage: listening [pattern]"
+    fi
+}
+
+autoload -U promptinit; promptinit
+prompt pure
 
 # fzf, autojump
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
