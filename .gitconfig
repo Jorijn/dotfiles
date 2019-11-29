@@ -94,7 +94,7 @@
 
 	# Use colors in Git commands that are capable of colored output when
 	# outputting to the terminal. (This is the default setting in Git ≥ 1.8.4.)
-	ui = auto
+	ui = true
 
 [color "branch"]
 
@@ -154,6 +154,6 @@
 [credential]
 	helper = osxkeychain
 [commit]
-	gpgsign = true
+    gpgsign = false
 [commit]
 	template = /Users/jorijn/.stCommitMsg
