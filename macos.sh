@@ -153,7 +153,7 @@ defaults write com.apple.dock minimize-to-application -bool true
 defaults write com.apple.dock persistent-apps -array
 
 # Show only open applications in the Dock
-defaults write com.apple.dock static-only -bool true
+defaults write com.apple.dock static-only -bool false
 
 # Group windows by application in Mission Control
 defaults write com.apple.dock expose-group-by-app -bool true
