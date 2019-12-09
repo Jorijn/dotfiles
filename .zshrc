@@ -35,6 +35,20 @@ function drain_gearman() {
     gearman -t 1000 -n -w -f $1 > /dev/null
 }
 
+function kubectl_install {
+    set -x
+
+    if [ "$1" -ne "" ]; then
+        VERSION="$1"
+    else
+        VERSION="$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)"
+    fi
+
+    curl -LO "https://storage.googleapis.com/kubernetes-release/release/${VERSION}/bin/darwin/amd64/kubectl"
+    chmod +x ./kubectl
+    sudo mv ./kubectl /usr/local/bin/kubectl
+}
+
 function moveebms {
     set -x
     payload="`grep -ri $1 . |cut -d: -f1`"

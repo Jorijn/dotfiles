@@ -154,6 +154,6 @@
 [credential]
 	helper = osxkeychain
 [commit]
-    gpgsign = false
+    gpgsign = true
 [commit]
 	template = /Users/jorijn/.stCommitMsg
