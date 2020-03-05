@@ -21,10 +21,10 @@ alias cat=bat
 alias ping='prettyping --nolegend'
 alias top='sudo htop'
 alias dc='docker-compose'
-alias gc='git switch'
 alias pst='phpstan analyse --level=max'
 alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'
 alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
+alias compoer='composer'
 
 # includes
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
