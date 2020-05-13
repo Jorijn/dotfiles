@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 export ZSH=/Users/jorijn/.oh-my-zsh
 export PATH="$HOME/bin:/usr/local/sbin:$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.symfony/bin:$PATH"
@@ -6,7 +13,7 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 # oh-my-zsh
-ZSH_THEME=""
+ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git osx cp supervisor laravel symfony2 composer brew kubectl)
 source $ZSH/oh-my-zsh.sh
 
@@ -67,9 +74,6 @@ listening() {
     fi
 }
 
-autoload -U promptinit; promptinit
-prompt pure
-
 # fzf, autojump
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
@@ -82,3 +86,8 @@ if [ -f '/Users/jorijn/Development/google-cloud-sdk/path.zsh.inc' ]; then . '/Us
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jorijn/Development/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jorijn/Development/google-cloud-sdk/completion.zsh.inc'; fi
 
+# added by travis gem
+[ ! -s /Users/jorijn/.travis/travis.sh ] || source /Users/jorijn/.travis/travis.sh
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
