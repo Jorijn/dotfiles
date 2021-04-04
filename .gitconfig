@@ -157,3 +157,5 @@
     gpgsign = true
 [commit]
 	template = /Users/jorijn/.stCommitMsg
+[pull]
+	rebase = false

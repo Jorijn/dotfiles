@@ -8,13 +8,14 @@ fi
 export ZSH=/Users/jorijn/.oh-my-zsh
 export PATH="$HOME/bin:/usr/local/sbin:$HOME/.composer/vendor/bin:$HOME/bin:/usr/local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.symfony/bin:$PATH"
+export PATH="${PATH}:${HOME}/.krew/bin"
 export EDITOR=vi
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
 
 # oh-my-zsh
-ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git osx cp supervisor laravel symfony2 composer brew kubectl)
+ZSH_THEME=""
+plugins=(git docker symfony virtualenv kubectl)
 source $ZSH/oh-my-zsh.sh
 
 # aliases
@@ -25,13 +26,12 @@ alias renamer='curl http://10.0.1.2:5050/api/a9fc1f1a10e246b8a8f3b88d5ec9bc20/re
 alias phpprofiler='php -d xdebug.profiler_enable=On'
 alias phpdebug='php -dxdebug.remote_enable=1 -dxdebug.remote_autostart=On -dxdebug.idekey=phpstorm'
 alias cat=bat
-alias ping='prettyping --nolegend'
-alias top='sudo htop'
 alias dc='docker-compose'
 alias pst='phpstan analyse --level=max'
 alias docker_clean_images='docker rmi $(docker images -a --filter=dangling=true -q)'
 alias docker_clean_ps='docker rm $(docker ps --filter=status=exited --filter=status=created -q)'
 alias compoer='composer'
+alias nb='newsboat'
 
 # includes
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -86,8 +86,12 @@ if [ -f '/Users/jorijn/Development/google-cloud-sdk/path.zsh.inc' ]; then . '/Us
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jorijn/Development/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/jorijn/Development/google-cloud-sdk/completion.zsh.inc'; fi
 
-# added by travis gem
-[ ! -s /Users/jorijn/.travis/travis.sh ] || source /Users/jorijn/.travis/travis.sh
+[[ /usr/local/bin/kubectl ]] && source <(kubectl completion zsh)
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# To customize prompt, run `p10k configure` or edit ~/.dotfiles/.p10k.zsh.
+# [[ ! -f ~/.dotfiles/.p10k.zsh ]] || source ~/.dotfiles/.p10k.zsh
+
+eval "$(starship init zsh)"
+
+export COMPOSE_DOCKER_CLI_BUILD=1 
+export DOCKER_BUILDKIT=1
